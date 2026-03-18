@@ -4,11 +4,13 @@ import random
 word_liste = ["hangman", "python", "computer", "spiel","programm","creatin","auto","sonnenuntergang",
               "Vogel","bienenstock","waschmaschine","schule"]
 word = random.choice(word_liste)
-
 guessed_letters = []
+
+
 
 #funkton
 def hangman():
+    attempts = 5  # versuche
 
     print("Viel Spaß mit dem Spiel Galgenmännchen")
 
@@ -26,7 +28,11 @@ def hangman():
         if user_letter in word:
             print("Richtig")
         else:
-            print("Falsch")
+            attempts -= 1
+            print("Falsch""Versuche übrig:",attempts)
+            if attempts <= 0:
+                print("Game over" "\n" "Das wort wahr:",word)
+                break
 
         #wort anzeige
         for word_letter in word:
@@ -35,6 +41,7 @@ def hangman():
 
             else :
                 print("_",end="")
+
         #prüfung ob gewonnen
         win = True
         for letter in word:
