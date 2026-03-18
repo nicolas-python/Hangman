@@ -2,11 +2,11 @@
 import random
 
 word_liste = ["hangman", "python", "computer", "spiel","programm","creatin","auto","sonnenuntergang",
-              "Vogel","bienenstock","waschmaschine","schule"]
+              "vogel","bienenstock","waschmaschine","schule","motorrad","brille","mathe","katze"]
 word = random.choice(word_liste)
 guessed_letters = []
 
-hangman_pics= [     #r""" phyton interpretirt nix(wörtlich genommen),zeilenumbrüche wie im string
+hangman_pics= [     #r""" python interpretiert nix wörtlich genommen ,zeilenumbrüche wie im string
  r"""               
       _________
       |/      |
@@ -41,7 +41,7 @@ r"""
     _________
     |/      |
     |      (_)
-    |      \|
+    |      \|/
     |       |
     |
     |
@@ -61,7 +61,8 @@ r"""
 
 #funkton
 def hangman():
-    attempts = 5  # versuche
+    attempts = 5
+    max_attempts = 5  # versuche
 
     print("Viel Spaß mit dem Spiel Galgenmännchen")
 
@@ -80,8 +81,7 @@ def hangman():
             print("Richtig")
         else:
             attempts -= 1
-            print("Falsch""Versuche übrig:",attempts)
-            print(hangman_pics[5 - attempts ])              #hangman anzeigen
+            print(hangman_pics[max_attempts- attempts -1])              #hangman anzeigen  -1= weil listen Index 0–4, entspricht Bildern 1–5
             if attempts <= 0:
                 print("Game over" "\n" "Das wort wahr:",word)
                 break
