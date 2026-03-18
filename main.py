@@ -1,16 +1,34 @@
 #hangman
 import random
 
-word_liste = ["hangman"]
-wort = random.choice(word_liste)
+word_liste = ["hangman", "python", "computer", "spiel","programm","creatin","auto","sonnenuntergang",
+              "Vogel","bienenstock","waschmaschine","schule"]
+word = random.choice(word_liste)
+
+guessed_letters = []
 
 
-print("Viel Spaß mit dem Spiel Galgenmännchen")
+def hangman():
 
-buchstabe = input("Rate einen Buchstaben:")
+    print("Viel Spaß mit dem Spiel Galgenmännchen")
 
-if buchstabe in wort:
-    print("Richtig")
+    while True :
+        letter = input("Rate einen Buchstaben:")
+        guessed_letters.append(letter)
 
-else:
-    print("Falsch")
+        if letter in word:
+            print("Richtig")
+
+        else:
+            print("Falsch")
+
+        for letter in word:
+            if letter in guessed_letters:
+                print(letter,end="")    #end="" verhindert die zeilen brüche von print
+
+            else :
+                print("_",end="")
+
+
+hangman()
+
